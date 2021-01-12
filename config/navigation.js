@@ -5,6 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Signup from '../pages/Signup';
 import Login from '../pages/Login';
 import InputBuku from '../pages/InputBuku';
+import ListBuku from '../pages/ListBuku';
+
 
 
 const NavStack = createStackNavigator();
@@ -17,6 +19,7 @@ const NavStackScreen = () => (
       <NavStack.Screen name="Signup" component={Signup} />
       <NavStack.Screen name="Login" component={Login} />
       <NavStack.Screen name="InputBuku" component={InputBuku} />
+      <NavStack.Screen name="ListBuku" component={ListBuku} />
     </NavStack.Navigator>
 )
 

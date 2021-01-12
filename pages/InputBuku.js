@@ -5,7 +5,7 @@ import {Input} from 'react-native-elements';
 
 import firestore from '@react-native-firebase/firestore';
 
-const InputBuku = () => {
+const InputBuku = ({navigation}) => {
 
   const inputTitle = React.createRef();
   const inputDesc = React.createRef();
@@ -42,7 +42,7 @@ const InputBuku = () => {
       inputDesc.current.clear();
       inputAuthor.current.clear();
       alert('Book successfully added');
-      // navigation.navigate('ViewProducts');
+      navigation.navigate('ListBuku');
     })
     .catch(function (error) {
       console.error('Error adding document: ', error);
@@ -75,7 +75,7 @@ const InputBuku = () => {
         onChangeText={(penulis) => onChangePenulis(penulis)}
         rightIcon={
           <Icon
-            name='book'
+            name='user-circle'
             size={24}
             color='black'
           />
@@ -88,7 +88,7 @@ const InputBuku = () => {
         onChangeText={(deskripsi) => onChangeDeskripsi(deskripsi)}
         rightIcon={
           <Icon
-            name='user-circle'
+            name='book'
             size={24}
             color='black'
           />
