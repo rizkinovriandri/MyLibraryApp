@@ -4,10 +4,13 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {Text, Button} from 'react-native-elements';
 import firestore from '@react-native-firebase/firestore';
 
+
+import { BookItem, SeparatorList } from '../components/BookItem';
+
 const ListBuku = ({navigation}) => {
   const [data, setData] = useState();
 
-  useEffect(() => {
+    useEffect(() => {
     firestore()
       .collection('books')
       .onSnapshot((snapshot) => {
@@ -42,26 +45,19 @@ const ListBuku = ({navigation}) => {
         keyExtractor={(item) => item.id}
         renderItem={({item}) => {
           return (
-            <View style={styles.wrapper}>
-              <View style={styles.product}>
-                <View>
-                  <Text style={styles.title}>{item.title}</Text>
-                  <Text style={styles.author}>Penulis : {item.author}</Text>
-                  <Text>{item.description}</Text>
-                </View>
-               
-              </View>
-              <View style={styles.action}>
-                
-                <Button
-                  title="Hapus"
-                  type="outline"
-                  onPress={() => deleteBook(item.id)}
-                />
-              </View>
-            </View>
+            <BookItem
+              
+              title={item.title}
+              author={item.author}
+              description={item.description}
+              onPress={() => navigation.navigate('ViewBuku', { contacts: item })
+            }
+          />
           );
         }}
+        ItemSeparatorComponent={SeparatorList}
+        ListHeaderComponent={() => <SeparatorList />}
+        ListFooterComponent={() => <SeparatorList />}
       />
       <Button
         title="Add Product"
