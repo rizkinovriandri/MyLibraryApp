@@ -23,7 +23,7 @@ const Login = ({ navigation }) => {
       .then(resp => {
         console.log(resp);
         alert('Login successfully');
-        navigation.navigate('ListBuku')
+        navigation.navigate('Home')
       })
       .catch(function(error) {
         var errorCode = error.code;
