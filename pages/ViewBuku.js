@@ -1,6 +1,6 @@
 import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Image } from 'react-native-elements';
+import { Image, Button } from 'react-native-elements';
 import { Text, StyleSheet, View } from 'react-native';
 
 const ViewBuku = (props) => {
@@ -31,6 +31,17 @@ const ViewBuku = (props) => {
           {props.route.params.contacts.description}
         </Text>
       </View>
+
+      <View style={{flex: 1, justifyContent: 'space-around', flexDirection: 'row'}}>
+          <Button
+            title="Edit Buku"
+            style={{marginRight: 10}}
+          />
+          <Button
+            title="Delete Buku"
+          />
+      </View>
+
     </SafeAreaView>
   );
 };
